@@ -17,6 +17,10 @@ require 'set.rb'
 
 def triangle(a, b, c)
   # WRITE THIS CODE
+  a, b, c = [a, b, c].sort
+  if a <= 0 || a + b <= c
+    raise TriangleError, "Inappropriate side lengths"
+  end
   return case [a, b, c].to_set.size
     when 1 then :equilateral
     when 2 then :isosceles
